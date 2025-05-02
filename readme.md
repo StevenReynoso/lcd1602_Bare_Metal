@@ -8,12 +8,17 @@ This project provides a simple yet robust driver for controlling LCD1602 display
 
 ## Features
 
-- Complete bare-metal implementation
-- 4-bit interface mode support
-- Custom character creation
-- Display control functions (on/off, cursor, blink)
-- Busy flag polling for reliable operation
-- Utility functions for positioning and text display
+- 4-bit LCD communication (DB4–DB7)
+- Busy flag polling (reads LCD status on D7 pin)
+- Full LCD initialization sequence
+- Commands: Clear display, set cursor, print strings
+- Low-level GPIO manipulation
+- SysTick-based millisecond and microsecond delay functions
+
+## 📷 Demo Output
+
+![20250429_234704](https://github.com/user-attachments/assets/a0686275-b08d-4bc1-9532-a011ab9a734b)
+
 
 ## Hardware Connections
 
@@ -22,7 +27,7 @@ Connect your LCD1602 to the STM32 as follows:
 | LCD Pin | STM32 Pin | Function |
 |---------|-----------|----------|
 | RS      | PA0       | Register Select |
-| RW      | PA2       | Read/Write |
+| RW      | PA10      | Read/Write |
 | E       | PA1       | Enable |
 | D4      | PA4       | Data bit 4 |
 | D5      | PA5       | Data bit 5 |
