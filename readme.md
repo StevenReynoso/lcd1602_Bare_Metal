@@ -60,7 +60,7 @@ This project is designed to be built with standard ARM GCC toolchain.
 - ARM GCC toolchain
 - ST-Link utilities (for flashing)
 
-##Educational Goals
+## Educational Goals
 
 This project is designed to deepen understanding of:
 
