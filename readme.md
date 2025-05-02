@@ -39,87 +39,7 @@ Connect your LCD1602 to the STM32 as follows:
 | A       | 5V/3.3V   | Backlight + |
 | K       | GND       | Backlight - |
 
-## API Reference
 
-### Initialization
-
-```c
-void lcd_init(void);
-```
-Initializes the LCD in 4-bit mode.
-
-### Display Control
-
-```c
-void lcd_clear(void);
-```
-Clears the display and returns cursor to home position.
-
-```c
-void lcd_home(void);
-```
-Returns cursor to home position (0,0).
-
-```c
-void lcd_display_on(uint8_t cursor, uint8_t blink);
-```
-Turns on the display with options for cursor and blink.
-
-```c
-void lcd_display_off(void);
-```
-Turns off the display.
-
-### Cursor Control
-
-```c
-void lcd_set_cursor(uint8_t row, uint8_t col);
-```
-Positions the cursor at the specified row and column.
-
-### Data Writing
-
-```c
-void lcd_write_char(char c);
-```
-Writes a single character at the current cursor position.
-
-```c
-void lcd_write_string(const char *str);
-```
-Writes a string at the current cursor position.
-
-### Custom Characters
-
-```c
-void lcd_create_char(uint8_t location, const uint8_t *pattern);
-```
-Creates a custom character at the specified location (0-7).
-
-## Usage Example
-
-```c
-int main(void) {
-    // Initialize system clock and GPIO
-    system_init();
-    gpio_init();
-    
-    // Initialize LCD
-    lcd_init();
-    lcd_clear();
-    lcd_display_on(1, 0);  // Display on, cursor on, blink off
-    
-    // Write a message
-    lcd_set_cursor(0, 0);
-    lcd_write_string("Hello, World!");
-    lcd_set_cursor(1, 0);
-    lcd_write_string("LCD1602 Demo");
-    
-    while (1) {
-        // Main loop
-    }
-}
-```
 
 ## Building and Flashing
 
@@ -139,6 +59,20 @@ This project is designed to be built with standard ARM GCC toolchain.
 
 - ARM GCC toolchain
 - ST-Link utilities (for flashing)
+
+##Educational Goals
+
+This project is designed to deepen understanding of:
+
+-LCD command timing and protocol
+
+- Bit-banging GPIOs on Cortex-M4
+
+- Bare-metal development (without HAL)
+
+- ARM memory-mapped I/O
+
+- SysTick timer usage for precise delay
 
 ## License
 
