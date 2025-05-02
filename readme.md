@@ -64,7 +64,7 @@ This project is designed to be built with standard ARM GCC toolchain.
 
 This project is designed to deepen understanding of:
 
--LCD command timing and protocol
+- LCD command timing and protocol
 
 - Bit-banging GPIOs on Cortex-M4
 
